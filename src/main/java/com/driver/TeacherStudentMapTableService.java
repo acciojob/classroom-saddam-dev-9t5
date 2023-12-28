@@ -15,7 +15,7 @@ public class TeacherStudentMapTableService {
         List<String> allTeacher = teacherRepository.getAllTeacher();
         List<String> allStudent = studentRepository.getAllStudent();
         if( allStudent.contains(student) && allTeacher.contains(teacher) ) {
-            teacherRepository.updateStudentNumber(teacher);
+
             return teacherStudentMapTableRepository.addStudentTeacherPair(student, teacher);
         }
         String message = "Student or Teacher not in our list";

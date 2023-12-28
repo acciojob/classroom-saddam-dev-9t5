@@ -13,6 +13,7 @@ public class TeacherRepository {
     TeacherStudentMapTableRepository teacherStudentMapTableRepository = new TeacherStudentMapTableRepository();
     public String addTeacher(Teacher teacher) {
         String name = teacher.getName();
+        teacher.setNumberOfStudents(0);
         this.teacherList.put(name, teacher);
         return "New teacher added successfully";
     }

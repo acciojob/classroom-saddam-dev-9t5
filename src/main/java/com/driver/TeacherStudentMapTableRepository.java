@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public class TeacherStudentMapTableRepository {
     Map<String, ArrayList<String>> teacherStudentMapTable = new HashMap<>();
+    TeacherRepository teacherRepository = new TeacherRepository();
 
     public String addStudentTeacherPair(String student, String teacher) {
         ArrayList<String> students = new ArrayList<>();
@@ -19,6 +20,7 @@ public class TeacherStudentMapTableRepository {
             if(!students.contains(student)) {
                 students.add(student);
                 teacherStudentMapTable.put(teacher, students);
+                teacherRepository.updateStudentNumber(teacher);
             }
         }else {
             students.add(student);
